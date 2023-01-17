@@ -5,6 +5,7 @@
     min-height: 80px;
     margin-bottom: 16px;
     border-bottom: 1px solid #2a363b;
+    background-color: rgb(235, 235, 175);
 }
 
 .navLink {
@@ -18,7 +19,15 @@
     transition: all 0.3s;
 }
 
-.navLink.active {
-    border-bottom-color: tomato;
+.active {
+    display: inline-flex;
+    padding: 20px;
+    border-bottom: 2px solid transparent;
+    font-size: 22px;
+    margin-right: 20px;
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+
     color: blue;
 }
