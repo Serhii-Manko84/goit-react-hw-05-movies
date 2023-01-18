@@ -1,6 +1,9 @@
 import Loader from 'components/Loader/Loader';
+import MovieList from 'components/MovieList/MovieList';
+import SearchBar from 'components/SearchBar/SearchBar';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { getSearchMovies } from 'services/api';
 
@@ -31,8 +34,8 @@ function Movies() {
       } finally {
         setIsLoading(false);
       }
-      getMovie();
     };
+    getMovie();
   }, [searchRequest]);
 
   function onSubmit(value) {
@@ -41,11 +44,11 @@ function Movies() {
 
   return (
     <>
-      {isLoading && 'isLoading ...'}
+      {isLoading && <Loader />}
       {error && <div>{error}</div>}
 
-      {/* <SearchBar onSearch={onSubmit} />
-      {movies && <MovieList movies={movies} prevLocation={location} />} */}
+      <SearchBar onSearch={onSubmit} />
+      {movies && <MovieList movies={movies} prevLocation={location} />}
     </>
   );
 }
