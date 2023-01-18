@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { getTrendingMovies } from 'services/api';
+import Loader from 'components/Loader/Loader';
 
 function Home() {
   const [movies, setMovies] = useState([]);
@@ -25,7 +26,9 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <>
+      {isLoading && <Loader />}
+      {error && <div>{error}</div>}
       <div>
         <h2>Trending Movies</h2>
         <ul>
@@ -41,7 +44,7 @@ function Home() {
           <Link />
         </ul>
       </div>
-    </div>
+    </>
   );
 }
 

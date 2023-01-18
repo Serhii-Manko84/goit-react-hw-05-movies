@@ -32,11 +32,10 @@ export const getMovieDetails = async movieId => {
   return data;
 };
 
-export const getMovieCredits = async movieId => {
+export const getMovieCast = async movieId => {
   const URL = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
   const KEY = 'a43431b6830a1c67f45a08c68d23509d';
   const filter = `?api_key=${KEY}&language=en-US`;
-
   const { data } = await axios.get(`${URL}${filter}`);
 
   return data.cast;
