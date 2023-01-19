@@ -33,18 +33,19 @@ const Cast = () => {
       {isLoading && <Loader />}
       {error && <div>{error}</div>}
       <ul className={css.castList}>
-        {cast.map(castEl => {
-          return (
-            <li key={castEl.id} className={css.castItem}>
-              <img
-                src={`https://image.tmdb.org/t/p/w300${castEl.profile_path}`}
-                alt={`${castEl.name} portrait`}
-              />
-              <p>Name: {castEl.name}</p>
-              <p>Character:{castEl.character} </p>
-            </li>
-          );
-        })}
+        {Array.isArray(cast) &&
+          cast?.map(castEl => {
+            return (
+              <li key={castEl.id} className={css.castItem}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${castEl.profile_path}`}
+                  alt={`${castEl.name} portrait`}
+                />
+                <p>Name: {castEl.name}</p>
+                <p>Character:{castEl.character} </p>
+              </li>
+            );
+          })}
       </ul>
     </>
   );
