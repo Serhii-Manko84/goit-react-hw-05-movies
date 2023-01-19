@@ -32,15 +32,16 @@ function Home() {
       <div>
         <h2>Trending Movies</h2>
         <ul>
-          {movies.map(movie => {
-            return (
-              <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>
-                  <p>{movie.title ?? movie.name}</p>
-                </Link>
-              </li>
-            );
-          })}
+          {Array.isArray(movies) &&
+            movies?.map(movie => {
+              return (
+                <li key={movie.id}>
+                  <Link to={`/movies/${movie.id}`}>
+                    <p>{movie.title ?? movie.name}</p>
+                  </Link>
+                </li>
+              );
+            })}
           <Link />
         </ul>
       </div>
